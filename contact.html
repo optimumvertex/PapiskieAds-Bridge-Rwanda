@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact — PapiskieAds</title>
+  <meta name="description" content="Contact PapiskieAds. Get a free business check via WhatsApp." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <strong>PapiskieAds AI Hub</strong>
+        <small>AI-powered growth + Bridge</small>
+      </a>
+      <nav class="menu">
+        <a href="start-here.html">Start Here</a>
+        <a href="ai-hub.html">AI Hub</a>
+        <a href="services.html">Services</a>
+        <a href="bridge.html">Bridge</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html" class="btn">Contact</a>
+        <a data-wa class="btn whatsapp" data-wa-message="Hi, I want a free business check.">WhatsApp</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="grid hero">
+      <div class="card two-col">
+        <div class="kicker">Contact</div>
+        <h1 class="h1" style="font-size:42px">Free Business Check</h1>
+        <p class="muted">Fill this form and it will open WhatsApp with a ready-to-send message.</p>
+
+        <form id="auditForm">
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <div style="flex:1;min-width:220px">
+              <label style="display:block;color:var(--muted);font-size:14px;margin:12px 0 6px;">Your name</label>
+              <input name="name" required placeholder="e.g., Daniel" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0a1220;color:var(--text)" />
+            </div>
+            <div style="flex:1;min-width:220px">
+              <label style="display:block;color:var(--muted);font-size:14px;margin:12px 0 6px;">Business name</label>
+              <input name="business" required placeholder="e.g., ABC Bakery" style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0a1220;color:var(--text)" />
+            </div>
+          </div>
+
+          <label style="display:block;color:var(--muted);font-size:14px;margin:12px 0 6px;">Website / Instagram / Google Maps link</label>
+          <input name="website" placeholder="https://..." style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0a1220;color:var(--text)" />
+
+          <label style="display:block;color:var(--muted);font-size:14px;margin:12px 0 6px;">Main goal (more calls? more sales? more bookings?)</label>
+          <textarea name="goal" required placeholder="Tell me what you want to improve..." style="width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0a1220;color:var(--text);min-height:120px;resize:vertical"></textarea>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn primary" type="submit">Send on WhatsApp</button>
+            <a data-wa class="btn whatsapp" data-wa-message="Hi, I want a free business check.">Just WhatsApp</a>
+          </div>
+        </form>
+
+        <hr />
+        <p class="notice">Later we can add: Calendly booking, email forms, WhatsApp Cloud API automation, and payments.</p>
+      </div>
+
+      <aside class="card one-col">
+        <h2 class="h2">Direct WhatsApp</h2>
+        <p class="muted">Fastest response = WhatsApp.</p>
+        <a data-wa class="btn whatsapp" data-wa-message="Hi PapiskieAds, I want to ask about your services.">WhatsApp Now</a>
+
+        <hr />
+        <h2 class="h2">Rwanda guide</h2>
+        <a class="btn" href="rwanda-guide.html">Open Rwanda Guide</a>
+      </aside>
+    </section>
+  </main>
+
+  <script>
+    // Uses the same WA number as assets/js/main.js
+    const WHATSAPP_NUMBER = "2349135154419";
+    function waLink(message){
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+
+    const form = document.getElementById("auditForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = form.querySelector("[name='name']").value.trim();
+      const business = form.querySelector("[name='business']").value.trim();
+      const website = form.querySelector("[name='website']").value.trim();
+      const goal = form.querySelector("[name='goal']").value.trim();
+
+      const msg =
+`Hi PapiskieAds, I want a FREE Business Check.
+
+Name: ${name}
+Business: ${business}
+Website/Instagram/Maps: ${website}
+Goal: ${goal}
+
+Please tell me the quickest wins to get more customers.`;
+
+      window.open(waLink(msg), "_blank");
+    });
+  </script>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
